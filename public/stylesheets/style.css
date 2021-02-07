@@ -210,3 +210,6 @@ background-color: var(--cocobrown);
 .padding-custom{
   padding-left: 129px;
 }
+.wrap {
+  overflow-wrap: break-word;
+}

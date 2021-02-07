@@ -1,3 +1,4 @@
+//middleware(control) file to help interactions for upvotes between server(model) and front end(view)
 async function upvoteClickHandler(event) {
   event.preventDefault();
 

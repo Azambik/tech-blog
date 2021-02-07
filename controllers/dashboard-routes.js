@@ -3,7 +3,7 @@ const sequelize = require('../config/connection');
 const { Post, User, Comment, Vote } = require('../models');
 const withAuth = require('../utils/auth');
 
-// get all posts for dashboard
+//displays all post
 router.get('/', withAuth, (req, res) => {
   console.log(req.session);
   console.log('======================');
@@ -42,7 +42,7 @@ router.get('/', withAuth, (req, res) => {
       res.status(500).json(err);
     });
 });
-
+//gets a single post
 router.get('/edit/:id', withAuth, (req, res) => {
   Post.findByPk(req.params.id, {
     attributes: [

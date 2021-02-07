@@ -1,3 +1,4 @@
+//main index for linking all route files together to server.js
 const router = require('express').Router();
 
 const apiRoutes = require('./api/');

@@ -1,3 +1,4 @@
+//middleware(control) file to help interactions for logging out between server(model) and front end(view)
 async function logout() {
   const response = await fetch('/api/users/logout', {
     method: 'post',

@@ -3,7 +3,7 @@ const sequelize = require('../../config/connection');
 const { Post, User, Comment, Vote } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// get all users
+//gets a all post
 router.get('/', (req, res) => {
   console.log('======================');
   Post.findAll({
@@ -35,7 +35,7 @@ router.get('/', (req, res) => {
       res.status(500).json(err);
     });
 });
-
+//gets a single post
 router.get('/:id', (req, res) => {
   Post.findOne({
     where: {
@@ -75,9 +75,8 @@ router.get('/:id', (req, res) => {
       res.status(500).json(err);
     });
 });
-
+//creates a post
 router.post('/', withAuth, (req, res) => {
-  // expects {title: 'Taskmaster goes public!', post_body: 'https://taskmaster.com/press', user_id: 1}
   Post.create({
     title: req.body.title,
     post_body: req.body.post_body,
@@ -89,9 +88,8 @@ router.post('/', withAuth, (req, res) => {
       res.status(500).json(err);
     });
 });
-
+//sets upvote to a post
 router.put('/upvote', withAuth, (req, res) => {
-  // custom static method created in models/Post.js
   Post.upvote({ ...req.body, user_id: req.session.user_id }, { Vote, Comment, User })
     .then(updatedVoteData => res.json(updatedVoteData))
     .catch(err => {
@@ -99,11 +97,12 @@ router.put('/upvote', withAuth, (req, res) => {
       res.status(500).json(err);
     });
 });
-
+//updates a post
 router.put('/:id', withAuth, (req, res) => {
   Post.update(
     {
-      title: req.body.title
+      title: req.body.title,
+      post_body: req.body.body
     },
     {
       where: {
@@ -123,7 +122,7 @@ router.put('/:id', withAuth, (req, res) => {
       res.status(500).json(err);
     });
 });
-
+//deletes a post
 router.delete('/:id', withAuth, (req, res) => {
   console.log('id', req.params.id);
   Post.destroy({

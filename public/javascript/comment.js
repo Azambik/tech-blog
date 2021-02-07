@@ -1,3 +1,4 @@
+//middleware(control) file to help interactions for making a comment between server(model) and front end(view)
 async function commentFormHandler(event) {
   event.preventDefault();
 

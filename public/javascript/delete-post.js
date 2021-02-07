@@ -1,3 +1,4 @@
+//middleware(control) file to help interactions for deleting post between server(model) and front end(view)
 async function deleteFormHandler(event) {
   event.preventDefault();
 
