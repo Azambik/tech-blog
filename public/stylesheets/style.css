@@ -1,3 +1,9 @@
+
+:root {
+  --pistachio: #dcfad6;
+  --cocobrown: #1d1108;
+  --pistachioshadow: #acc2a8;
+}
 * {
   box-sizing: border-box;
 }
@@ -175,4 +181,32 @@ footer {
   justify-content: center;
   padding: 1%;
   font-size: 110%;
+}
+.bg-pistachio {
+background-color: var(--pistachio);
+}
+.bg-brown {
+background-color: var(--cocobrown);
+}
+.header {
+  width: 114%;
+  margin-left: -83px;
+  height: 100px;
+}
+.border-coco {
+  border-color: var(--cocobrown);
+  border-style: solid;
+  border-width: medium;
+}
+.text-coco {
+  color: var(--cocobrown);
+  }
+.text-pistachio{
+ color: var(--pistachio)
+}
+.no-bullet {
+  list-style-type: none;
+}
+.padding-custom{
+  padding-left: 129px;
 }
