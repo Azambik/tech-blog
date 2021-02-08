@@ -12,7 +12,7 @@ const sequelize = require("./config/connection");
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const sess = {
-  secret: process.env.es_key,
+  secret: process.env.ES_KEY,
   cookie: {
     //logout after 5 minute of inactivity
     maxAge: 5*60*1000
